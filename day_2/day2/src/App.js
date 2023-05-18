@@ -3,19 +3,18 @@ import './App.css';
 import { HomePage } from './HomePage';
 import { Apple } from './Apple';
 
-function App() {
-  <div>
-    <Link to='/' style={{
-      marginLeft: 5,
-    }}>Home</Link>
-    <Link to='/apple' style={{
-      marginLeft: 5,
-    }}>Home</Link>
-    <Link to='/' style={{
-      marginLeft: 5,
-    }}>Home</Link>
-    
-  </div>
-}
+const App = () => (
 
+  <BrowserRouter>
+    <div>
+      <Link to='/'>Home</Link>
+      <Link to='/apple'>Apple</Link>
+    </div>
+    <Routes>
+      <Route path='/' element={<HomePage />}></Route>
+      <Route path='/apple' element={<Apple />}></Route>
+    </Routes>
+  </BrowserRouter>
+
+);
 export default App;
