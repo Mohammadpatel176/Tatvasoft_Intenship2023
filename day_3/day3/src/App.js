@@ -18,7 +18,7 @@ const App = () => (
           ...globalStyle.navbar
         }}>
           <Link to='/' /*</div>style={{ marginLeft: 5, color: 'blue', padding: 20, fontSize: 20 }} */>Home</Link>
-          <Link to='apple'>Apple</Link>
+          <Link to='/apple'>Apple</Link>
           <Link to='/applet'>Page Not found</Link>
         </div>
         <Routes className="Route-style">

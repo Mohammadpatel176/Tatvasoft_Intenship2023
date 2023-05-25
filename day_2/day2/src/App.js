@@ -1,21 +1,43 @@
-import './App.css';
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import { HomePage } from './HomePage';
-import { Apple } from './Apple';
-import { NAN } from './PageNotFound';
+import logo from './logo.svg';
+import './css/App.css';
+import HomePage from './Components/HomePage';
+import Login from './Components/Login';
+import Register from './Components/Register';
+import NotFoundPage from './Components/NotFoundPage';
+import globalStyles from './Components/Constants';
+import appStyle from './css/AppStyle.module.css';
+import {Routes,Route, BrowserRouter,Link} from 'react-router-dom';
 
-const App = () => (
 
-  <BrowserRouter>
-    <Link to='/' style={{ display: "flex", padding: 5, columnGap: 10, }}>Home</Link>
-    <Link to='apple' style={{ display: "flex", padding: 5, columnGap: 10, }}>Apple</Link>
-    <Link to='/applet' style={{ display: "flex", padding: 5, columnGap: 10, }}>Page not found</Link>
-    <Routes>
-      <Route path='/' element={<HomePage />}></Route>
-      <Route path='/apple' element={<Apple />}></Route>
-      <Route path='*' element={<NAN />}></Route>
-    </Routes>
-  </BrowserRouter>
+function App() {
+  return (
+    <>
+   {/* <img src={logo} alt='App Logo'/>  */}
+    {/* <img src="http://localhost:3000/logo192.png"/>  */}
+  <BrowserRouter> 
+  <div  
+  // style={{...globalStyles.navbar}}
+    className={appStyle.navbar}
+  > 
+  <Link to='/' style={{marginLeft:5}} className='link'>Home</Link>
+  <Link to='/login' style={{marginLeft:10}} className='link'>Login</Link>
+  <Link to='/register' style={{marginLeft:15}} className='link'>Register Now</Link>
+  <Link to='/error' style={{marginLeft:20}} className='link'>NotFoundPage</Link>
+  </div>
+  
+  <Routes>
+    <Route path='/' element={<HomePage/>}></Route>
+    <Route path='/login' element={<Login/>}></Route>
+    <Route path='/register' element={<Register/>}></Route>
+    <Route path='*' element={<NotFoundPage/>}></Route>
+ </Routes>
+  </BrowserRouter> 
+  </>);
+    
+   
+  
 
-);
+
+}
+
 export default App;
